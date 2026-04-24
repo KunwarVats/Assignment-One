@@ -96,3 +96,28 @@ Handles:
 ##  Permissions Required
 
 Add to `Info.plist`:
+
+# Architecture Diagram 
+
+SwiftUI View (HomeFeed)
+        |
+        v
+HomeViewModel (@Observable)
+        |
+        +----------------------+
+        |          |          |
+        v          v          v
+    Network     Location     Maps
+    Service     Service     Service
+    (JSON)     (CoreLoc)   (Apple Maps)
+        |
+        v
+EventDTO (API Layer)
+        |
+        v
+EventRepository (SwiftData)
+        |
+        v
+SwiftData Store (Persistence)
+
+ImageCache (NSCache) used by ViewModel
